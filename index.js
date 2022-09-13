@@ -38,11 +38,11 @@ client.on('interactionCreate', async interaction => {
 // add
 client.on("ready", async () => {
   const data = [{
-      name: "startTime",
+      name: "startWorkTime",
       description: "作業時間計測開始",
   },
   {
-      name: "endTime",
+      name: "endWorkTime",
       description: "作業時間計測終了",
   }
 ];
@@ -58,7 +58,7 @@ client.on("interactionCreate", async (Interaction) => {
   if (!Interaction.isCommand()) {
       return;
   }
-  if (Interaction.commandName === "startTime") {
+  if (Interaction.commandName === "startWorkTime") {
     startTime = new Date();
 
     const h = startTime.getHours();
@@ -66,7 +66,7 @@ client.on("interactionCreate", async (Interaction) => {
     const s = startTime.getSeconds();
     await Interaction.reply(`作業開始時間：${h}時${m}分${s}秒`);
 
-  } else if (Interaction.commandName === "endTime") {
+  } else if (Interaction.commandName === "endWorkTime") {
 
     const now = new Date();
     const d = new Date(Date.now() - startTime);
