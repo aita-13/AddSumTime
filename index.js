@@ -29,20 +29,18 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
 	} else if (commandName === 'user') {
 		await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
-  } else if (commandName === '256') {
-    await interaction.reply('start time!');
-  }
+  } 
 });
 
 
 // add
 client.on("ready", async () => {
   const data = [{
-      name: "startWorkTime",
+      name: "startworktime",
       description: "作業時間計測開始",
   },
   {
-      name: "endWorkTime",
+      name: "endworktime",
       description: "作業時間計測終了",
   }
 ];
@@ -58,7 +56,7 @@ client.on("interactionCreate", async (Interaction) => {
   if (!Interaction.isCommand()) {
       return;
   }
-  if (Interaction.commandName === "startWorkTime") {
+  if (Interaction.commandName === "startworktime") {
     startTime = new Date();
 
     const h = startTime.getHours();
@@ -66,7 +64,7 @@ client.on("interactionCreate", async (Interaction) => {
     const s = startTime.getSeconds();
     await Interaction.reply(`作業開始時間：${h}時${m}分${s}秒`);
 
-  } else if (Interaction.commandName === "endWorkTime") {
+  } else if (Interaction.commandName === "endworktime") {
 
     const now = new Date();
     const d = new Date(Date.now() - startTime);
